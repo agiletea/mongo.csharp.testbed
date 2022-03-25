@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  mongo.csharp.testbed.worker:
+    image: ${DOCKER_REGISTRY-}mongocsharptestbedworker
+    build:
+      context: .
+      dockerfile: Mongo.CSharp.TestBed.Worker/Dockerfile
+  mongo_db:
+    container_name: mongo-offshore-workplan-publisher
+    image: mongo
+    ports:
+      - "27117:27017"
